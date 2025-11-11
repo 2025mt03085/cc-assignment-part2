@@ -12,7 +12,8 @@ LAUNCH_TEMPLATE_NAME="${VM_NAME}-lt"
 ASG_NAME="${VM_NAME}-asg"
 TARGET_GROUP_NAME="${VM_NAME}-tg"
 NLB_NAME="${VM_NAME}-nlb"
-REGION="us-east-1"
+REGION="ap-south-1"
+#REGION="us-east-1"
 
 # === READ RDS CONFIG TO PASS TO LAUNCH TEMPLATE ===
 export DB_ENDPOINT=$(cat .db-config | grep db_endpoint | awk -F "=" '{print $2}')
@@ -25,7 +26,8 @@ export DB_PASSWORD=$(cat .db-config | grep db_password | awk -F "=" '{print $2}'
 
 # --- 1. Fetch Latest Ubuntu 24.04 AMI ID ---
 echo "Fetching latest Ubuntu 24.04 LTS AMI ID..."
-AMI_ID="ami-084568db4383264d4"
+#AMI_ID="ami-084568db4383264d4"
+AMI_ID="ami-02b8269d5e85954ef"
 
 # --- 6. Fetch User-Data from GitHub ---
 echo "Fetching User Data from GitHub..."

@@ -10,7 +10,7 @@ if [ -z "$1" ]; then
 fi
 
 SNAPSHOT_ARN="$1"
-AWS_REGION="us-east-1"
+AWS_REGION="ap-south-1"
 ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 DATE_SUFFIX=$(date +%Y%m%d%H%M%S)
 
@@ -20,7 +20,7 @@ IAM_ROLE_NAME="RDSExportToS3Role"
 IAM_ROLE_ARN="arn:aws:iam::${ACCOUNT_ID}:role/${IAM_ROLE_NAME}"
 
 # Use the KMS key created earlier
-KMS_KEY_ARN="arn:aws:kms:${AWS_REGION}:${ACCOUNT_ID}:key/9f61a433-dd0d-4cf2-9c45-0e0cb6c6a01d"  # replace this with your actual key ARN
+KMS_KEY_ARN="arn:aws:kms:${AWS_REGION}:${ACCOUNT_ID}:key/b7a82d8f-6b6b-4376-80f5-566f5ae6c8e0"  # replace this with your actual key ARN
 
 echo "Creating S3 bucket: $BUCKET_NAME"
 aws s3 mb s3://$BUCKET_NAME --region $AWS_REGION

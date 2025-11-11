@@ -14,7 +14,8 @@ SUBNET_PREFIX=$2
 SECURITY_GROUP_NAME=$3
 
 # === Static Configuration ===
-REGION="us-east-1"
+#REGION="us-east-1"
+REGION="ap-south-1"
 VPC_CIDR="10.0.0.0/16"
 SUBNET_CIDR_1="10.0.10.0/24"
 SUBNET_CIDR_2="10.0.20.0/24"

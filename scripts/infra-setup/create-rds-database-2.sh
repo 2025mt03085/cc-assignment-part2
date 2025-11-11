@@ -11,7 +11,7 @@ if [ -z $DB_PASSWORD ];then
 fi
 DB_INSTANCE_CLASS="db.t3.micro"
 DB_ENGINE="mysql"
-DB_ENGINE_VERSION="8.0.35"
+DB_ENGINE_VERSION="8.0.37"
 ALLOCATED_STORAGE=20 # in GB
 REGION=$3
 VPC_SECURITY_GROUP_ID=$(cat .runner-config | grep sg | awk -F "=" '{print $2}' | xargs)
