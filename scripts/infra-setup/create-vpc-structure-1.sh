@@ -50,7 +50,7 @@ aws ec2 create-tags --resources $SUBNET_ID_1 --tags Key=Name,Value="${SUBNET_PRE
 
 aws ec2 modify-subnet-attribute --subnet-id $SUBNET_ID_1 --map-public-ip-on-launch
 
-# --- 2b. Create Subnet in us-east-1b ---
+# --- 2b. Create Subnet in ap-south-1b ---
 SUBNET_ID_2=$(aws ec2 create-subnet \
   --vpc-id $VPC_ID \
   --cidr-block $SUBNET_CIDR_2 \
