@@ -17,11 +17,11 @@ export DB_PASSWORD='$DB_PASSWORD'
 
 # Clone the GitHub repo
 cd /home/ubuntu
-git clone https://github.com/2024mt03579/cc-assignment.git
+git clone https://github.com/2025mt03085/cc-project-hava.git
 
 # Set up Nginx config
 sudo rm /etc/nginx/sites-enabled/default
-sudo cp /home/ubuntu/cc-assignment/webconf/nginx.conf /etc/nginx/sites-available/myflaskapp
+sudo cp /home/ubuntu/cc-project-hava/webconf/nginx.conf /etc/nginx/sites-available/myflaskapp
 sudo ln -s /etc/nginx/sites-available/myflaskapp /etc/nginx/sites-enabled/
 
 # Set up Python virtual environment (no sudo needed)
@@ -31,13 +31,13 @@ source venv/bin/activate
 
 # Install app requirements
 pip install --upgrade pip
-pip install -r /home/ubuntu/cc-assignment/cc-flask-app/requirements.txt
+pip install -r /home/ubuntu/cc-project-hava/cc-flask-app/requirements.txt
 
 # Install tables if they dont exist
-python3 /home/ubuntu/cc-assignment/cc-flask-app/init_db.py
+python3 /home/ubuntu/cc-project-hava/cc-flask-app/init_db.py
 
 # Start Gunicorn in background
-cd /home/ubuntu/cc-assignment/cc-flask-app
+cd /home/ubuntu/cc-project-hava/cc-flask-app
 gunicorn --bind 0.0.0.0:8000 app:app > gunicorn.log 2>&1 &
 
 # Restart Nginx
