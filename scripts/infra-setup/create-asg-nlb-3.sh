@@ -29,8 +29,7 @@ AMI_ID="ami-02b8269d5e85954ef"
 
 # --- 6. Fetch User-Data from GitHub ---
 echo "Fetching User Data from GitHub..."
-#curl -s https://raw.githubusercontent.com/2024mt03579/cc-assignment/main/scripts/templates/auto-scaling-template.sh -o user-data.template.sh
-curl -s https://raw.githubusercontent.com/2025mt03085/cc-project-hava/main/scripts/templates/auto-scaling-template.sh -o user-data.template.sh
+curl -s https://raw.githubusercontent.com/2025mt03085/cc-assignment-part2/main/scripts/templates/auto-scaling-template.sh -o user-data.template.sh
 envsubst < user-data.template.sh > user-data.sh
 USER_DATA_BASE64=$(base64 -w 0 user-data.sh)
 
