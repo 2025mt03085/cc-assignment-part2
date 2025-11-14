@@ -3,7 +3,7 @@ set -e
 
 # === CONFIGURABLE PARAMETERS ===
 VM_NAME="as-web-app"
-INSTANCE_TYPE="t2.micro"
+INSTANCE_TYPE="t3.micro"
 KEY_NAME="bits-key"
 VPC_ID=$(cat .runner-config | grep vpc | awk -F "=" '{print $2}')
 SECURITY_GROUP_ID=$(cat .runner-config | grep sg | awk -F "=" '{print $2}')
@@ -110,7 +110,7 @@ aws cloudwatch put-metric-alarm \
   --metric-name CPUUtilization \
   --namespace AWS/EC2 \
   --statistic Average \
-  --period 300 \
+  --period 60 \
   --threshold 70 \
   --comparison-operator GreaterThanThreshold \
   --dimensions Name=AutoScalingGroupName,Value="$ASG_NAME" \
@@ -134,7 +134,7 @@ aws cloudwatch put-metric-alarm \
   --metric-name CPUUtilization \
   --namespace AWS/EC2 \
   --statistic Average \
-  --period 300 \
+  --period 60 \
   --threshold 30 \
   --comparison-operator LessThanThreshold \
   --dimensions Name=AutoScalingGroupName,Value="$ASG_NAME" \
